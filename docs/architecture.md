@@ -1,0 +1,2 @@
+# Architecture
+One FastAPI process serves HTML and JSON. SQLAlchemy shares one schema across local SQLite and deployment PostgreSQL. A separate worker claims database jobs and runs a serial, bounded crawl. Each approved URL represents one public announcement. Publishing requires editorial review. A failed fetch preserves the last published record. The web process never fetches user-submitted URLs on a request thread.
